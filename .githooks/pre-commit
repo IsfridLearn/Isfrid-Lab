@@ -1,0 +1,3 @@
+#!/bin/sh
+# Blocks the commit when staged files contain secrets or ignored paths.
+exec node scripts/check-secrets.mjs --staged

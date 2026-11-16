@@ -1,0 +1,3 @@
+#!/bin/sh
+# Blocks the push when any tracked file contains secrets, ignored paths or attribution markers.
+exec node scripts/check-secrets.mjs --markers

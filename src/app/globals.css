@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ISFRID design tokens: paper neutrals, ink text, one green accent, amber for streaks. */
+:root {
+  --bg: #f6f6f3;
+  --surface: #ffffff;
+  --muted: #efefea;
+  --border: #e3e3dc;
+  --border-strong: #cdcdc4;
+  --fg: #14171a;
+  --fg-muted: #565b63;
+  --fg-subtle: #878c95;
+  --brand: #0b6b58;
+  --brand-hover: #09594a;
+  --brand-fg: #ffffff;
+  --brand-soft: #e2f1ed;
+  --brand-text: #0a6453;
+  --amber: #b86e06;
+  --amber-soft: #fbf0d9;
+  --danger: #b93227;
+  --danger-soft: #fbe9e7;
+  --success: #18794a;
+  --success-soft: #e3f3ea;
+  --code-bg: #101418;
+  --code-fg: #d7dde4;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0d0f11;
+  --surface: #14171a;
+  --muted: #1b1f23;
+  --border: #262b30;
+  --border-strong: #394047;
+  --fg: #eceef0;
+  --fg-muted: #a4aab2;
+  --fg-subtle: #747b84;
+  --brand: #2bb294;
+  --brand-hover: #40c3a5;
+  --brand-fg: #04211b;
+  --brand-soft: #11302a;
+  --brand-text: #52d1b3;
+  --amber: #e9a440;
+  --amber-soft: #33270f;
+  --danger: #f0776c;
+  --danger-soft: #3a1815;
+  --success: #4cc38a;
+  --success-soft: #11301f;
+  --code-bg: #0a0c0e;
+  --code-fg: #d7dde4;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-fg: var(--brand-fg);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-text: var(--brand-text);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-code-bg: var(--code-bg);
+  --color-code-fg: var(--code-fg);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --radius-card: 14px;
+  --shadow-pop: 0 12px 32px -12px rgb(0 0 0 / 0.25), 0 2px 6px -2px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--brand) 28%, transparent);
+  }
+  button:not(:disabled),
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+  dialog::backdrop {
+    background: rgb(10 12 14 / 0.5);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+.animate-rise {
+  animation: rise 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+  }
+}

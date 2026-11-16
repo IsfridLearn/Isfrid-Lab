@@ -1,0 +1,41 @@
+{
+  "name": "isfrid",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "postinstall": "node scripts/copy-pdf-assets.mjs && node scripts/install-hooks.mjs",
+    "typecheck": "tsc --noEmit",
+    "check:secrets": "node scripts/check-secrets.mjs --all",
+    "check:push": "node scripts/check-secrets.mjs --markers"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.119.0",
+    "lucide-react": "^1.73.0",
+    "next": "16.4.6",
+    "pdfjs-dist": "^6.5.438",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "dompurify": "^3.4.18",
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.8"
+    }
+  }
+}
